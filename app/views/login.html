@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html class="bg-black" ng-controller="LoginCtrl">
+    <head>
+        <meta charset="UTF-8">
+        <title>AdminLTE | Log in</title>
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+        <!-- bootstrap 3.0.2 -->
+        <link href="styles/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <!-- font Awesome -->
+        <link href="styles/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <!-- Theme style -->
+        <link href="styles/css/AdminLTE.css" rel="stylesheet" type="text/css"/>
+
+    </head>
+    <body class="bg-black">
+
+        <div class="form-box" id="login-box">
+            <div class="header">Login</div>
+            <form>
+                <div class="body bg-gray">
+                    <div class="form-group">
+                        <input type="text" name="userid" class="form-control" placeholder="Usuário"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control" placeholder="Senha"/>
+                    </div>
+                </div>
+                <div class="footer">
+                    <button type="submit" class="btn bg-olive btn-block">Conectar</button>
+                </div>
+            </form>
+
+            <div class="margin text-center">
+                <span>Login utilizando suas redes sociais</span>
+                <br/>
+                <button class="btn bg-light-blue btn-circle" ng-click="loginFacebook()"><i class="fa fa-facebook"></i></button>
+                <button class="btn bg-red btn-circle" ng-click="loginGoogle()"><i class="fa fa-google-plus"></i></button>
+            </div>
+        </div>
+
+    </body>
+</html>
