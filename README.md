@@ -3,7 +3,7 @@ App Angular - Crud Colaborador
 
 Passos para a execução:
 
--npm install
--bower install
--grunt serve
-done!
+1 - npm install
+2 - bower install
+3 - grunt serve
+Done!
