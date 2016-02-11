@@ -7,7 +7,7 @@ app.controller('LoginCtrl', ['$scope', '$resource','$window',
 
     hello.init({
       facebook : '592719450881848',
-      google : '303009781610-93cpn0ek7onq33b3r1cj5oi4e3o58quf.apps.googleusercontent.com'
+      google : '303009781610-pebm7orntmlqp34e99j6ncvo36ks5cg2.apps.googleusercontent.com'
     })
 
   $scope.loginFacebook =  function(){
