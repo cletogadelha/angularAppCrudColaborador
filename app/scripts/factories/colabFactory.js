@@ -1,5 +1,5 @@
 app.factory('Colab', ['$resource',function ($resource) {
-  return $resource("http://localhost:8080/rest/colaborador/:id", {id: "@idColab"}, {
+  return $resource("https://springwscds.herokuapp.com/rest/colaborador/:id", {id: "@idColab"}, {
     update: {
       method: 'PUT'
     }
