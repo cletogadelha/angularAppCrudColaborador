@@ -1,3 +1,4 @@
+'use strict';
 app.service('Map', function($q) {
 
     this.init = function() {

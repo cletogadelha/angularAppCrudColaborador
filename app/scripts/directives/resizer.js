@@ -1,3 +1,4 @@
+'use strict';
 app.directive('flowImageResize', function($q) {
       return {
           'require': 'flowInit',
