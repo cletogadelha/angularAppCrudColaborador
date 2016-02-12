@@ -8,6 +8,7 @@ app.service('Map', function($q) {
             disableDefaultUI: true
         }
         if($('#map').length > 0){
+          alert('teste');
           this.map = new google.maps.Map(
               document.getElementById("map"), options
           );
