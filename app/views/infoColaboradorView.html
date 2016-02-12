@@ -90,16 +90,18 @@
   <div>
     <label for="contatos">Contatos</label>
     <br/>
-      <span class="col-md-6 col-lg-6" ng-repeat="contato in colaborador.listaContatos">
-        <i class="{{setaClasseContato(contato.tipo)}}"></i>
-        <span style="padding: 10px">{{ contato.contato }}</span>
-    <br/>
-    <br/>
+      <div class="form-control">
+        <span class="col-md-6 col-lg-6" ng-repeat="contato in colaborador.listaContatos">
+          <i class="{{setaClasseContato(contato.tipo)}}"></i>
+          <span style="padding: 10px">{{ contato.contato }}</span>
+      <br/>
+      <br/>
+      </div>
+
   </span>
 </div>
 </div>
-<br/><br/><br/>
-<br/><br/><br/>
+
 <!-- /contatos COLABORADOR -->
 <!-- ENDERECO COLABORADOR -->
 <div class="form-group">
