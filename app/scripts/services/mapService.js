@@ -15,6 +15,7 @@ app.service('Map', function($q) {
 
           this.places = new google.maps.places.PlacesService(this.map);
         }
+        alert('teste2');
     }
 
     this.search = function(str) {
