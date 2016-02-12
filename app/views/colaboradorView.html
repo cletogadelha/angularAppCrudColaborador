@@ -110,8 +110,8 @@
   <div class="form-group">
     <label for="competencias">Competências</label>
     <ui-select class="form-control" multiple tagging tagging-label=" - Insira uma Nova Competência" ng-model="colaborador.competencias" theme="bootstrap" title="Insira suas competencias">
-      <ui-select-match placeholder="Insira suas Competências">{{$item.descricao}}</ui-select-match>
-      <ui-select-choices repeat="competencia in competenciaDisponiveis | filter:$select.search">
+      <ui-select-match class="ui-select-match" placeholder="Insira suas Competências">{{$item.descricao}}</ui-select-match>
+      <ui-select-choices class="ui-select-choices" repeat="competencia in competenciaDisponiveis | filter:$select.search">
         {{competencia.descricao}}
       </ui-select-choices>
     </ui-select>
@@ -137,7 +137,7 @@
         <td>{{ contato.tipo }}</td>
         <td>{{ contato.contato }}</td>
         <td>
-          <input value="Novo" type="button" class="pull-right fa fa-times" ng-click="removeContato({{contato}})"></input>
+          <input value="Novo" type="button" class="pull-right fa fa-times" ng-click="removeContato(contato)"></input>
         </td>
       </tr>
     </table>
