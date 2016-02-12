@@ -7,15 +7,13 @@ app.service('Map', function($q) {
             zoom: 13,
             disableDefaultUI: true
         }
-        if($(#map).length > 0){
-          alert('teste');
+        if($('#map').length > 0){
           this.map = new google.maps.Map(
               document.getElementById("map"), options
           );
 
           this.places = new google.maps.places.PlacesService(this.map);
         }
-        alert('teste2');
     }
 
     this.search = function(str) {
