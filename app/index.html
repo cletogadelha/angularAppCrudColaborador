@@ -73,11 +73,13 @@
     <script src="styles/js/canvas-to-blob.js"></script>
     <script src="styles/js/ngflowstandalone.js"></script>
 
-<script>
-    $(window).load(function() {
-        <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyDK0UX0Xmbt-vUdq_zZyaqF8ULp00iB-r0&libraries=places&sensor=false"></script>
-    });
-</script>
+    <script>
+      $(window).load(function() {
+        $.getScript('https://maps.google.com/maps/api/js?key=AIzaSyDK0UX0Xmbt-vUdq_zZyaqF8ULp00iB-r0&libraries=places&sensor=false', function( data, textStatus, jqxhr ) {
+          // do some stuff after script is loaded
+        });
+      });
+   </script>
 
     <!-- endbuild -->
   </body>
