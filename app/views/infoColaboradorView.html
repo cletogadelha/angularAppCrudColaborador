@@ -50,8 +50,8 @@
         <img src="images/yeoman.png" class="img img-circle">
       </div>
       <!-- /DRAG AND DROP IMAGE -->
-    </br>
-  </br>
+    <br/>
+  <br/>
   <!-- NOME COLABORADOR -->
   <div class="form-group">
     <input class="form-control" disabled id="nome" name="nome" ng-model="colaborador.nome" type="text">
@@ -83,7 +83,7 @@
       </button>
     </span>
   </div>
-</br>
+<br/><br/>
 <!-- /competencias COLABORADOR -->
 <!-- contatos COLABORADOR -->
 <div>
@@ -93,11 +93,13 @@
       <span class="col-lg-6" ng-repeat="contato in colaborador.listaContatos">
         <i class="{{setaClasseContato(contato.tipo)}}"></i>
         <span style="padding: 10px">{{ contato.contato }}</span>
-      </br>
-    </br>
+      <br/>
+    <br/>
   </span>
 </div>
 </div>
+<br/>
+<br/>
 <!-- /contatos COLABORADOR -->
 <!-- ENDERECO COLABORADOR -->
 <div class="form-group">
@@ -105,7 +107,7 @@
   <i class="fa fa-map-marker fa-2x"></i>
   <input class="form-control" disabled style="width:97%" id="endereco" name="endereco" ng-model="colaborador.endereco" type="text">
 </div>
-</br>
+<br/>
 <div id="map"></div>
 </div>
 
