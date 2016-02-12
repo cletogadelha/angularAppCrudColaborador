@@ -7,7 +7,7 @@ app.service('Map', function($q) {
             zoom: 13,
             disableDefaultUI: true
         }
-        if($('#map').length > 0){
+        if(document.getElementById("map") != null){
           alert('teste');
           this.map = new google.maps.Map(
               document.getElementById("map"), options
