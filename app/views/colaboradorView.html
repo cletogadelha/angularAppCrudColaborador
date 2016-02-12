@@ -74,8 +74,8 @@
         </div>
       </div>
       <!-- /DRAG AND DROP IMAGE -->
-    </br>
-  </br>
+    </br></br>
+    </br></br>
   <!-- NOME COLABORADOR -->
   <div class="form-group">
     <input class="form-control" id="nome" placeholder="Nome Completo" required name="nome" ng-model="colaborador.nome" type="text">
@@ -106,7 +106,7 @@
   </div>
   <!-- /biografia COLABORADOR -->
   <!-- competencias COLABORADOR -->
-  TESTE
+
   <div class="form-group">
     <label for="competencias">Competências</label>
     <ui-select class="form-control" multiple tagging tagging-label=" - Insira uma Nova Competência" ng-model="colaborador.competencias" theme="bootstrap" title="Insira suas competencias">
@@ -116,16 +116,16 @@
       </ui-select-choices>
     </ui-select>
   </div>
-  TESTE
+
   <!-- /competencias COLABORADOR -->
   <!-- contatos COLABORADOR -->
   <div class="form-group">
     <label for="contatos">Contatos</label>
     <div class="form-inline">
-      <i class="form-control {{setaClasseContato(contatoSelecionado.descricao)}}"></i>
-      <select class="form-control" name="contato" id="contatoSelect" ng-model="contatoSelecionado" required ng-options="contato as contato.descricao for contato in contatosDisponiveis">>
+      <i class=" {{setaClasseContato(contatoSelecionado.descricao)}}"></i>
+      <select name="contato" id="contatoSelect" ng-model="contatoSelecionado" required ng-options="contato as contato.descricao for contato in contatosDisponiveis">>
       </select>
-      <input class="form-control" id="contato" placeholder="Informe seu contato" name="contato" ng-model="contato" type="text">
+      <input id="contato" placeholder="Informe seu contato" name="contato" ng-model="contato" type="text">
       <input value="Novo" type="button" class="pull-right btn btn-warning" ng-click="insereContato(); resetFormCampo(formColab)" ng-disabled="formColab.contato.$pristine"/>
     </div>
     <br/><br/>
