@@ -18,6 +18,25 @@
   <body ng-app="angularSpringApp">
     <!--[if lte IE 8]> <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p> <![endif]-->
 
+    <!-- Add your site or application content here -->
+    <div id="cabecalho" class="header">
+      <div class="container">
+        <div class="navbar-header navbar-brand">
+          AngularSpring
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div ng-view=""></div>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <p>Cleto Gadelha</p>
+      </div>
+    </div>
+
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -54,25 +73,12 @@
     <script src="styles/js/canvas-to-blob.js"></script>
     <script src="styles/js/ngflowstandalone.js"></script>
 
+<script>
+    $(window).load(function() {
+        <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyDK0UX0Xmbt-vUdq_zZyaqF8ULp00iB-r0&libraries=places&sensor=false"></script>
+    });
+</script>
+
     <!-- endbuild -->
-
-    <!-- Add your site or application content here -->
-    <div id="cabecalho" class="header">
-      <div class="container">
-        <div class="navbar-header navbar-brand">
-          AngularSpring
-        </div>
-      </div>
-    </div>
-
-        <div class="container">
-          <div ng-view=""></div>
-        </div>
-
-        <div class="footer">
-          <div class="container">
-            <p>Cleto Gadelha</p>
-          </div>
-        </div>
   </body>
 </html>
