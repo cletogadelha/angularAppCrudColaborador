@@ -201,27 +201,4 @@ app.controller('ColabCtrl', ['$scope', '$resource', 'Colab', 'Map', '$routeParam
 
           Map.init();
         }
-
-
-
-
-        //UPload da Imagem - Not Working
-        /*        $scope.upload = function() {
-
-                  var fd = new FormData();
-                  fd.append('file', $scope.objFlow.flow.files[0]);
-
-                  var request = {
-                    method: 'POST',
-                    url: 'http://localhost:8080/SpringAngular/rest/colaborador/upload/',
-                    data: fd,
-                    headers: {
-                      'Content-Type': undefined
-                    }
-                  }
-
-                    $http(request)
-                    .success(function() {})
-                    .error(function() {});
-                  } */
       ]);
