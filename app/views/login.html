@@ -2,13 +2,13 @@
 <html class="bg-black" ng-controller="LoginCtrl">
     <head>
         <meta charset="UTF-8">
-        <title>Cleto Gadelha | Crud Colaboradores</title>
+        <title>Cleto Gadelha | Collaborators CRUD</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     </head>
     <body class="bg-black">
       <div id="divMsg">
-        <div class="alert alert-danger" ng-show="mensagemErro">
-          {{mensagemErro}}
+        <div class="alert alert-danger" ng-show="errorMessage">
+          {{errorMessage}}
         </div>
       </div>
         <div class="form-box" id="login-box">
@@ -16,23 +16,16 @@
             <form>
                 <div class="body bg-gray">
                     <div class="form-group">
-                        <input type="text" ng-model="user" name="userid" class="form-control" placeholder="Usuário"/>
+                        <input type="text" ng-model="user" name="userid" class="form-control" placeholder="Username"/>
                     </div>
                     <div class="form-group">
-                        <input type="password" ng-model="password" name="password" class="form-control" placeholder="Senha"/>
+                        <input type="password" ng-model="password" name="password" class="form-control" placeholder="Password"/>
                     </div>
                 </div>
                 <div class="footer">
-                    <button class="btn bg-olive btn-block" ng-click="login()">Conectar</button>
+                    <button class="btn bg-olive btn-block" ng-click="login()">Login</button>
                 </div>
             </form>
-
-            <div class="margin text-center">
-                <span>Login utilizando suas redes sociais</span>
-                <br/>
-                <button class="btn bg-light-blue btn-circle" ng-click="loginFacebook()"><i class="fa fa-facebook"></i></button>
-                <button class="btn bg-red btn-circle" ng-click="loginGoogle()"><i class="fa fa-google-plus"></i></button>
-            </div>
         </div>
 
     </body>

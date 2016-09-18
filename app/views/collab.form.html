@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html ng-controller="CollabCtrl">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Cleto Gadelha | Collaborators CRUD</title>
+  </head>
+
+  <style>
+    #map {
+        height: 300px;
+        border-radius: 5px;
+        border: 1px solid silver;
+    }
+  </style>
+
+  <h1 class="text-center">Collaborator</h1>
+  <body flow-prevent-drop>
+    <form name="formCollab" ng-submit="saveCollaborator()">
+      <div id="divMsg">
+        <div class="alert alert-success" ng-show="successMessage">
+          {{successMessage}}
+        </div>
+        <div class="alert alert-danger" ng-show="errorMessage">
+          {{errorMessage}}
+        </div>
+      </div>
+      <button class="fa fa-check btn btn-primary pull-right" type="submit">
+        Save
+      </button>
+      <a style="cursor: pointer; text-decoration: none !important;" class='fa fa-arrow-left fa-2x pull-left' ng-href='#/list' title="Back" type="button"  ></a>
+    <br/><br/>
+    <br/><br/>
+  <!-- NAME -->
+  <div class="form-group">
+    <input class="form-control" id="nome" placeholder="Full Name" required name="name" ng-model="collaborator.name" type="text">
+  </div>
+  <!-- /NAME -->
+  <!-- PROFESSION -->
+  <div class="form-group">
+    <select class="form-control" name="profession" id="professionSelect" ng-model="collaborator.profession" required>
+      <option value="">Select your Profession</option>
+      <option ng-repeat="prof in availableProfessions" value="{{prof.profession}}">{{prof.profession}}</option>
+    </select>
+  </div>
+  <!-- PROFESSION -->
+  <!-- WORKLOCATION -->
+  <div class="form-group">
+    <select class="form-control" name="workLocation" id="workLocationSelect" ng-model="collaborator.workLocation" required>
+      <option value="">Select your Work Location</option>
+      <option ng-repeat="local in availableWorkLocations" value="{{local.location}}">{{local.location}}</option>
+    </select>
+  </div>
+  <!-- /WORKLOCATION -->
+  <!-- BIOGRAPHY -->
+  <div class="form-group">
+    <textarea class="form-control" ng-model="collaborator.biography" name="biography" id="biographyTextArea" required placeholder="Tell Me Something About Yourself" ng-trim="false">
+    </textarea>
+  </div>
+  <!-- /BIOGRAPHY-->
+  <!-- COMPETENCIES-->
+  <div class="form-group">
+    <label for="competencies">Competencies</label>
+    <ui-select class="form-control" multiple tagging tagging-label=" - Insert a new competency" ng-model="collaborator.competencies" theme="bootstrap" title="Insert your competencies">
+      <ui-select-match class="ui-select-match" placeholder="Insert your competencies">{{$item.description}}</ui-select-match>
+      <ui-select-choices class="ui-select-choices" repeat="competency in availableCompetencies | filter : $select.search">
+        {{competency.description}}
+      </ui-select-choices>
+    </ui-select>
+  </div>
+  <!-- /COMPETENCIES -->
+  <!-- CONTACTS -->
+  <div class="form-group">
+    <label for="contacts">Contacts</label>
+    <div class="form-inline">
+      <i class=" {{setContactClass(selectedContact.description)}}"></i>
+      <select name="contact" id="contactSelect" ng-model="selectedContact" required ng-options="contact as contact.description for contact in availableContacts">>
+      </select>
+      <input id="contact" placeholder="Provide your contact" name="contact" ng-model="contact" type="text">
+      <input value="New" type="button" class="pull-right btn btn-warning" ng-click="insertContact(); resetFormField(formCollab)" ng-disabled="formCollab.contact.$pristine"/>
+    </div>
+    <br/><br/>
+    <table class="table table-striped">
+      <tr ng-repeat="contact in collaborator.contactList">
+        <td style="width:10px">
+          <i class="{{setContactClass(contact.type)}}"></i>
+        </td>
+        <td>{{ contact.type }}</td>
+        <td>{{ contact.contact }}</td>
+        <td>
+          <button type="button" class="pull-right fa fa-times" ng-click="removeContact(contact)"></button>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!-- /CONTACS -->
+  <!-- ADDRESS -->
+  <div class="form-group">
+    <div class="form-inline">
+      <i class="fa fa-map-marker fa-2x"></i>
+      <input class="form-control" required style="width:97%"
+          id="address" placeholder="Provide your Address" name="address"
+          ng-model="collaborator.address" type="text" ng-blur="search()" my-enter="search()">
+    </div>
+  <br/>
+  <!-- GOOGLE MAPS -->
+  <div id="map"></div>
+</form>
+</body>
+
+</html>

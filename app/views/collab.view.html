@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html ng-controller="CollabCtrlView">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Cleto Gadelha | Collaborators CRUD </title>
+  <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+</head>
+
+<style>
+  #map {
+    height: 300px;
+    border-radius: 5px;
+    border: 1px solid silver;
+  }
+
+  .img {
+    width: 130px;
+    height: 130px;
+    position: relative;
+    position: relative;
+    left: 140px;
+  }
+
+  .dentro {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+</style>
+
+<h1 class="text-center">Collaborator</h1>
+<body>
+  <form name="formInfoCollab">
+    <div id="divMsg">
+      <div class="alert alert-success" ng-show="successMessage">
+        {{successMessage}}
+      </div>
+      <div class="alert alert-danger" ng-show="errorMessage">
+        {{errorMessage}}
+      </div>
+    </div>
+    <a style="cursor: pointer; text-decoration: none !important;" class="fa fa-pencil fa-2x pull-right" title="Edit Collaborator" ng-href="#/editCollab/{{collaborator.id}}" type="button"></a>
+    <a style="cursor: pointer; text-decoration: none !important;" class="fa fa-trash-o fa-2x pull-right" ng-click="removeCollaborator(collaborator.id)" title="Remove Collaborator" type="button"></a>
+    <a style="cursor: pointer; text-decoration: none !important;" class='fa fa-arrow-left fa-2x pull-right' ng-href='#/list' title="Back" type="button"></a>
+    <br/>
+    <br/>
+    <!-- NAME -->
+    <div class="form-group">
+      <input class="form-control" disabled id="name" name="name" ng-model="collaborator.name" type="text">
+    </div>
+    <!-- /NAME -->
+    <!-- PROFESSION -->
+    <div class="form-group">
+      <input class="form-control" disabled id="profession" name="profession" ng-model="collaborator.profession" type="text">
+    </div>
+    <!-- /PROFESSION -->
+    <!-- WORK LOCATION -->
+    <div class="form-group">
+      <input class="form-control" disabled id="workLocation" name="workLocation" ng-model="collaborator.workLocation" type="text">
+    </div>
+    <!-- /WORK LOCATION -->
+    <!-- BIOGRAPHY -->
+    <div class="form-group">
+      <textarea class="form-control" disabled="true" ng-model="collaborator.biography" name="biography" id="biographyTextArea">
+      </textarea>
+    </div>
+    <!-- /BIOGRAPHY -->
+    <!-- COMPETENCIES -->
+    <div>
+      <div>
+        <label for="competencies">Competencies</label>
+      </div>
+      <span ng-repeat="competency in collaborator.competencies">
+        <button class=" btn btn-group btn-default" disabled>
+          {{competency.description}}
+        </button>
+      </span>
+    </div>
+    <br/>
+    <!-- /COMPETENCIES -->
+    <!-- Contacts -->
+    <div class="form-group">
+      <div>
+        <label for="contacts">Contacts</label>
+        <br/>
+        <span ng-repeat="contact in collaborator.contactList">
+          <i class="{{setContactClass(contact.type)}}"></i>
+          <span style="padding: 10px">{{ contact.contact }}</span>
+          <br/>
+          <br/>
+        </span>
+      </div>
+    </div>
+
+    <!-- /CONTACT -->
+    <!-- ADDRESS -->
+    <div class="form-group">
+      <div class="form-inline">
+        <i class="fa fa-map-marker fa-2x"></i>
+        <input class="form-control" disabled style="width:95%" id="address" name="address" ng-model="collaborator.address" type="text">
+      </div>
+      <br/>
+      <div id="map"></div>
+    </div>
+    <!--/ADDRESS -->
+  </form>
+</body>
+
+</html>

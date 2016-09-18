@@ -1,41 +1,41 @@
 'use strict';
 
-app.controller('InfoColabCtrl', ['$scope', '$resource', 'Colab', 'Map','$routeParams','$window',
-      function($scope, $resource, Colab, Map,$routeParams,$window) {
+app.controller('CollabCtrlView', ['$scope', '$resource', 'Collab', 'Map','$routeParams','$window',
+      function($scope, $resource, Collab, Map,$routeParams,$window) {
 
         $scope.objFlow = {};
 
-        $scope.iconeContato = '';
+        $scope.contactIcon = '';
 
-        $scope.mensagemSucesso = '';
-        $scope.messageErro = '';
+        $scope.successMessage = '';
+        $scope.errorMessage = '';
 
-        Colab.get({id:$routeParams.idColab})
-          .$promise.then(function(colab) {
-          $scope.colaborador = colab;
-          if($scope.colaborador.endereco)
+        Collab.get({id:$routeParams.idCollab})
+          .$promise.then(function(collab) {
+          $scope.collaborator = collab;
+          if($scope.collaborator.address)
             $scope.search();
           });
 
-        $scope.removeColaborador = function(id){
-            Colab.delete({id:$scope.colaborador.id}, function() {
-              $scope.mensagemSucesso="Colaborador Removido com sucesso!";
-              $window.location.href = '#/lista';
+        $scope.removeCollaborator = function(id){
+            Collab.delete({id:$scope.collaborator.id}, function() {
+              $scope.successMessage="Collaborator Removed!";
+              $window.location.href = '#/list';
             });
         }
 
-        $scope.setaClasseContato = function(descricao){
-          if(descricao === 'Telefone Fixo'){
+        $scope.setContactClass = function(description){
+          if(description === 'Fixed Phone'){
               return 'fa fa-phone fa-2x';
-          }else if(descricao === 'Telefone Celular'){
+          }else if(description === 'Mobile Phone'){
               return 'fa fa-mobile fa-2x';
-          }else if(descricao === 'E-Mail'){
+          }else if(description === 'E-Mail'){
               return 'fa fa-inbox fa-2x';
-          }else if(descricao === 'Facebook'){
+          }else if(description === 'Facebook'){
               return  'fa fa-facebook fa-2x';
-          }else if(descricao ===  'Linkedin'){
+          }else if(description ===  'Linkedin'){
               return 'fa fa-linkedin fa-2x';
-          }else if(descricao === 'Google+'){
+          }else if(description === 'Google+'){
               return 'fa fa-google-plus fa-2x';
           }
         }
@@ -51,7 +51,7 @@ app.controller('InfoColabCtrl', ['$scope', '$resource', 'Colab', 'Map','$routePa
           $scope.place = {};
           $scope.search = function() {
             $scope.apiError = false;
-            Map.search($scope.colaborador.endereco)
+            Map.search($scope.collaborator.address)
               .then(
                 function(res) {
                   Map.addMarker(res);
@@ -62,7 +62,7 @@ app.controller('InfoColabCtrl', ['$scope', '$resource', 'Colab', 'Map','$routePa
                 function(status) { // error
                   $scope.apiError = true;
                   $scope.apiStatus = status;
-                  $scope.messageErro="Erro ao carregar o mapa;"
+                  $scope.messageErro="Oops! Error loading the map;"
                 }
               );
           }
