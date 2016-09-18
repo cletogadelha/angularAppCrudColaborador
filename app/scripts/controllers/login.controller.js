@@ -9,7 +9,7 @@ app.controller('LoginCtrl', ['$scope', '$http','$window','$cookies','$base64',
 
         var data = "username=" + this.user + "&password=" + this.password + "&grant_type=password&scope=read%20write&";
 
-        $http.post('http://localhost:8080/oauth/token', data, {
+        $http.post('https://springwssample.herokuapp.com/oauth/token', data, {
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
                 "Accept": "application/json",
