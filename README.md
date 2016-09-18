@@ -1,11 +1,11 @@
 # angularAppCrudColaborador
-App Angular - Crud Colaborador
+App Angular - Collaborator CRUD
 
-Pre-requisitos:
+Prerequisites
 
-grunt,bower,sass,compass
+node,grunt,bower,ruby, sass,compass
 
-Passos para a execução:
+Execution Steps:
 
 1 - npm install
 
